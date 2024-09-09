@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,7 +21,7 @@ public class EntryController {
 	String userEntryUrl = "/Entry";
 	
 	@RequestMapping("/Entry") // アクセス先URIに関連する
-	public String main(Model model) {
+	public String main(Model model, @ModelAttribute EntryForm form) {
 
         model.addAttribute("generalFlg", "true" );
 		var _commonWorker = new CommonWorkerService();
@@ -32,7 +33,7 @@ public class EntryController {
 	
 
 	@PostMapping("/Entry/CreateUser")
-	public String createUser(Model model, EntryForm form) {
+	public String createUser(Model model, @ModelAttribute EntryForm form) {
 
 		var _commonWorker = new CommonWorkerService();
 		

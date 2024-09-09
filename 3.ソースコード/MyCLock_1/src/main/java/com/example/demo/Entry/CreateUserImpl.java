@@ -1,14 +1,16 @@
 package com.example.demo.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CreateUserImpl implements CreateUser {
 
 	@Autowired
-	private UserMapper usermapper;
+	private UserMapper mapper;
 	@Override
 	public void creatUser(EntryModel entryModel){
-		usermapper.insertOne(entryModel);
+		mapper.insertOne(entryModel);
 		
 		
 		
